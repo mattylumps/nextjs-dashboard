@@ -1,3 +1,4 @@
+import GoogleProvider from 'next-auth/providers/google';
 export const authConfig = {
     pages: {
       signIn: '/login',
@@ -21,8 +22,12 @@ export const authConfig = {
     },
     
     
-    providers: [], // Add providers with an empty array for now
-    };
+    providers: [GoogleProvider({
+         clientId: process.env.GOOGLE_CLIENT_ID,
+       }),
+    ],
+    secret: process.env.NEXTAUTH_SECRET,
+  };
     
 
 
